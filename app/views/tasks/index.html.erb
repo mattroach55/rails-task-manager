@@ -1,5 +1,4 @@
 <h1>My Tasks</h1>
-
 <ul>
 <% @tasks.each do |task| %>
   <li>
@@ -9,15 +8,14 @@
       <i class="far fa-square"></i>
     <% end %>
     <%= link_to task [ 'title' ], task_path(task) %>
-    <%= link_to task_delete_path(task), method: :delete do %>
+    <%= link_to task_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
       <i class="fas fa-trash-alt"></i>
     <% end %>
     <!-- icon needs link attached -->
   </li>
 <% end %>
 </ul>
-
-<p><%= link_to "Add a new task", task_new_path %></p>
+<p><%= link_to "Add a new task", new_task_path %></p>
 
 
 <!-- note. doens't need 'each with index' above but soemthing weird happening -->
